@@ -124,9 +124,10 @@ class Detector(object):
         track = muon.getTrack()
         
         #Inputting extremity values and initializing a list for the coordinates to go into
-        zB = [-6650, 6650]
-        yB = [-6172, 6172]
-        xB = [-6172, 6172]
+        zB = [-self.height/2, self.height/2]
+        yB = [-self.radius, self.radius]
+        xB = [-self.radius, self.radius]
+        Height = self.height/2
         coord = []
         
         ###plane1 (x-z)
@@ -135,14 +136,14 @@ class Detector(object):
             x = (z - lines[1])/lines[0]
             #finding x value using the x-z slope and intercept
             
-            if x < 6172 and x > -6172:
+            if x < self.radius and x > -self.radius:
             #checking if x value is within the bounds of the detector
                 hit1 = 1
                 #if yes, hit in this plane on top
                 y = (z - lines[5])/lines[4]
                 #find the y value for this set of x and z values
                 
-                if y < 6172 and y > -6172:
+                if y < self.radius and y > -self.radius:
                 #check if y value is within bounds of detector
                     coord.append([x, y, z])
                     #if yes, append coordinates since this is a good entry or exit point
@@ -153,14 +154,14 @@ class Detector(object):
             z = lines[0]*x + lines[1]
             #finding Z value using the x-z slope and intercept
             
-            if z < 6650 and z > -6650:
+            if z < Height and z > -Height:
             #checking if z value is within the bounds of the detector
                 hit1 = 2
                 #if yes, hit in this plane along sides
                 y = (z - lines[5])/lines[4]
                 #find the y value for this set of x and z values
                 
-                if y < 6172 and y > -6172:
+                if y < self.radius and y > -self.radius:
                 #check if y value is within bounds of detector
                     coord.append([x, y, z])
                     #if yes, append coordinates since this is a good entry or exit point
@@ -175,7 +176,7 @@ class Detector(object):
         dist = np.sqrt(x*x +y*y)
         #find the distance of this point from the origin
         
-        if dist < 6172:
+        if dist < self.radius:
         #if the distance is less than the radius of the circle, it must enter the circle
             hit2 = 1
             #hit in this plane
@@ -188,20 +189,20 @@ class Detector(object):
             y = (z - lines[5])/lines[4]
             #finding Y value using the y-z slope and intercept
             
-            if y < 6172 and y > -6172:
+            if y < self.radius and y > -self.radius:
             #checking if y value is within the bounds of the detector
                 hit3 = 1
                 #if yes, hit on the top of the detector
                 x = (z - lines[1])/lines[0]
-                if x < 6172 and x > -6172:
+                if x < self.radius and x > -self.radius:
                     coord.append([x, y, z])
 
         for y in yB:
             z = lines[4]*y + lines[5]
-            if z < 6650 and z > -6650:
+            if z < Height and z > -Height:
                 hit3 = 2
                 x = (z - lines[1])/lines[0]
-                if x < 6172 and x > -6172:
+                if x < self.radius and x > -self.radius:
                     coord.append([x, y, z])
                 
         if hit1 > 0 and hit2 == 1 and hit3 > 0:
