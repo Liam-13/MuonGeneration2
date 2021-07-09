@@ -31,7 +31,7 @@ def MuonGen2(numOfMuons, outputFile):
     #Instantiation
     print("Instantiating Detector:")
     OD = det.Detector(OD_Radius, OD_Height, "nEXO_OD", OD_Position) #Position at Center
-    print(str(OD))
+    #print(str(OD))
 
 
     ### Generator Parameters ###
@@ -40,7 +40,7 @@ def MuonGen2(numOfMuons, outputFile):
     #Instantiation
     print("Instantiating Generator:")
     MuonGen = gen.Generator(Gen_Radius, Gen_Position)
-    print(str(MuonGen))
+    #print(str(MuonGen))
 
 
     ### Open File ###
