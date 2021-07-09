@@ -2,7 +2,6 @@ import numpy as np
 from MuonGeneration2 import Muon as mu
 from scipy import constants as cst
 
-__init__.py
 
 class Detector(object):
     '''A rudimentary class for a cylindrical detector'''
