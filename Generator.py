@@ -2,7 +2,7 @@ import numpy as np
 import scipy as sp
 import random
 from scipy import constants as cst
-import Muon as mu
+from MuonGeneration2 import Muon as mu
 
 class Generator(object):
     '''A class for a circular generator of muons located with the overburden of SNOLAB.
