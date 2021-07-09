@@ -3,9 +3,9 @@
 #           Uses the Generator, detector           #
 #                 and Muon Classes                 #
 ####################################################
-import Generator as gn
-import Detector as det
-import Muon
+from MuonGeneration2 import Generator as gn
+from MuonGeneration2 import Detector as det
+from MuonGeneration2 import Muon
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.stats as st
