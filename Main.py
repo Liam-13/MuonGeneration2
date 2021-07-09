@@ -1,7 +1,7 @@
 import numpy as np
-import Muon as mu
-import Generator as gen
-import Detector as det
+from Elements import Muon as mu
+from Elements import Generator as gen
+from Elements import Detector as det
 import csv
 import argparse #For future options
 
