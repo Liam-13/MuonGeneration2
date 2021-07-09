@@ -1,5 +1,5 @@
 import numpy as np
-from Elements import Muon as mu
+import Muon as mu
 from scipy import constants as cst
 
 
