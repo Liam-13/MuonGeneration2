@@ -1,5 +1,5 @@
 import numpy as np
-import Muon as mu
+from MuonGeneration2 import Muon as mu
 from scipy import constants as cst
 
 __init__.py
