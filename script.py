@@ -1,8 +1,8 @@
-import Main2 
-import ReadMuonsFromCSV as reader
+import MuonGen 
+import ReadMuonsFromCSV2 as reader
 
-output = Main2.MuonGen2(100,'Outputer.csv')
+output = MuonGen.MuonGen2(100,'Outputer.csv')
 
-data = reader.ReadMuonsFromCSV('Outputer.csv')
+data = reader.ReadMuonsFromCSV2('Outputer.csv')
 print(data)
 
